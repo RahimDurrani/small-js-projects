@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+<body>
+        <!-- calculator -->
+
+    <div class=" w-2xs h-96  p-12 border-2 border-black rounded-2xl" id="cb">
+        <div class="text-orange-600">
+            <input class="border-2 border-amber-500 w-50  h-16 bg-white rounded-2xl " type="text" name="" id="input" readonly>
+        </div>
+        <div class="grid grid-cols-4 mt-3 gap-5 ">
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500  " >AC</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >DEL</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >%</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >/</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >7</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >8</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >9</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >*</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >4</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >5</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >6</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >-</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >3</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >2</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >1</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >+</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >00</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >0</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >.</button>
+            <button class="border-2 rounded-2xl border-amber-500 text-white text-2xl w-12 hover:bg-white hover:text-amber-500 " >=</button>
+              
+        </div>
+    </div>
+
+</body>
+<script>
+    //calculator
+   let input = document.getElementById('input');
+   let buttons = document.querySelectorAll('button');
+    let string = '';
+   let arraybtn = Array.from(buttons);
+   arraybtn.forEach(btn => {
+    btn.addEventListener('click',(e) =>{
+        
+        
+        if(e.target.innerHTML == 'DEL'){
+            string = string.substring(0, string.length-1);
+             input.value = string;
+        }else if(e.target.innerHTML == 'AC'){
+            string = '',
+            input.value = string;
+        } else if(e.target.innerHTML == '='){
+                string = eval(string);
+                 input.value = string; 
+        }   else{
+            string += e.target.innerHTML
+            input.value = string; 
+        }
+
+    });
+
+   });
+   
+   
+   
+</script>
+</html>
